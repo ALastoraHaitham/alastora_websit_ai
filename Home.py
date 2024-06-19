@@ -1,6 +1,11 @@
+import requests
 import streamlit as st
 from openai import OpenAI
 
+headers = {
+    "authorization": st.secrets["auth_token"],
+    "content_type": "applications/json",
+}
 st.sidebar.header("ALAstora Parameters :")
 model_temp = st.sidebar.slider("Temp", step=0.01, min_value=0.0,
                                max_value=2.0,
